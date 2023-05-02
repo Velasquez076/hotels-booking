@@ -1,0 +1,18 @@
+
+server:
+  port: 9900
+
+spring:
+  application:
+    name: booking hotels
+  datasource:
+    url: jdbc:mysql://172.17.0.2:3306/hotel_db?useSSL=false&serverTimezone=UTC
+    username: root
+    password: 12345
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+    show-sql: true
