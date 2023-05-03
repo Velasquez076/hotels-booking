@@ -1,14 +1,14 @@
 
 server:
-  port: 9900
+  port: ${PORT}
 
 spring:
   application:
     name: booking hotels
   datasource:
-    url: jdbc:mysql://172.17.0.2:3306/hotel_db?useSSL=false&serverTimezone=UTC
-    username: root
-    password: 12345
+    url: jdbc:mysql://${HOST}:3306/${DB_NAME}?useSSL=false&serverTimezone=UTC
+    username: ${DB_USER}
+    password: ${DB_PASS}
   jpa:
     hibernate:
       ddl-auto: none
