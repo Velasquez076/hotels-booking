@@ -59,4 +59,10 @@ public class MocksBookingUtil {
 		model.setNumberPeople(2L);
 		return model;
 	}
+
+	public static BookingEntity buildEntityNotFound() {
+		BookingEntity model = new BookingEntity();
+		model.setIdHotel(9999L);
+		return model;
+	}
 }
