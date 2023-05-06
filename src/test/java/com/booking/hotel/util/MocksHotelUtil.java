@@ -24,7 +24,7 @@ public class MocksHotelUtil {
 
 	public static HotelEntity buildEntity() {
 		HotelEntity model = new HotelEntity();
-		model.setId(null);
+		model.setId(1L);
 		model.setAddress("Cualquier cosa");
 		model.setNit("1522656-6");
 		model.setName("Nombre");

@@ -5,6 +5,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.atLeastOnce;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -61,6 +62,26 @@ class HotelControllerImplTest {
 		assertTrue(result.getLstElemList().isEmpty());
 		verify(intermediate, atLeastOnce()).saveHotel(any(HotelEntity.class));
 		
+	}
+
+	@Test
+	void findByIdHotelTest() {
+		when(intermediate.findByIdHotel(anyLong())).thenReturn(buildObject());
+		ResponseHotelData result = controllerImpl.findByIdHotel(1L);
+		
+		assertNotNull(result);
+		assertTrue(result.getLstElemList().isEmpty());
+	}
+
+	@Test
+	void updateHotelTest() {
+		when(intermediate.updateHotel(any(HotelEntity.class))).thenReturn(buildObject());
+		ResponseHotelData result = controllerImpl.updateHotel(buildRequest());
+		
+		assertNotNull(result);
+		assertEquals(201, result.getStatus().value());
+		assertTrue(result.getLstElemList().isEmpty());
+		verify(intermediate, atLeastOnce()).updateHotel(any(HotelEntity.class));
 	}
 
 	RequestHotel buildRequest() {
