@@ -3,6 +3,7 @@ package com.booking.hotel.service.impl;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.ArgumentMatchers.anyString;
@@ -19,6 +20,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import com.booking.hotel.exception.BussinessException;
 import com.booking.hotel.persistence.entity.HotelEntity;
 import com.booking.hotel.persistence.repository.HotelRepository;
 import com.booking.hotel.util.MessagesUtilEnum;
@@ -36,32 +38,32 @@ import lombok.extern.slf4j.Slf4j;
 class HotelServiceImplTest {
 
 	@Mock
-	HotelRepository hotelEntityRepository;
+	HotelRepository hotelRepository;
 
 	@InjectMocks
 	HotelServiceImpl hotelImpl;
 
 	@Test
 	void allHotelsTest() {
-		when(hotelEntityRepository.findAll()).thenReturn(MocksHotelUtil.buildList());
+		when(hotelRepository.findAll()).thenReturn(MocksHotelUtil.buildList());
 		List<HotelEntity> result = hotelImpl.allHotels();
 		
 		assertFalse(result.isEmpty());
-		verify(hotelEntityRepository, atLeastOnce()).findAll();
+		verify(hotelRepository, atLeastOnce()).findAll();
 	}
 
 	@Test
 	void createHotelSucessTest() {
-		when(hotelEntityRepository.save(any(HotelEntity.class))).thenReturn(MocksHotelUtil.buildEntity());
+		when(hotelRepository.save(any(HotelEntity.class))).thenReturn(MocksHotelUtil.buildEntity());
 		HotelEntity result = hotelImpl.createHotel(MocksHotelUtil.buildEntity());
 		
 		assertNotNull(result);
-		verify(hotelEntityRepository, atLeastOnce()).save(any(HotelEntity.class));
+		verify(hotelRepository, atLeastOnce()).save(any(HotelEntity.class));
 	}
 
 	@Test
 	void createHotelExistTest() {
-		when(hotelEntityRepository.findByNit(anyString())).thenReturn(Optional.of(MocksHotelUtil.buildExistEntity()));
+		when(hotelRepository.findByNit(anyString())).thenReturn(Optional.of(MocksHotelUtil.buildExistEntity()));
 		try {
 			hotelImpl.createHotel(MocksHotelUtil.buildExistEntity());
 			fail(MessagesUtilEnum.ALREDY_EXIST_HOTEL.getMessage());
@@ -72,9 +74,40 @@ class HotelServiceImplTest {
 
 	@Test
 	void findByIdSuccessTest() {
-		when(hotelEntityRepository.findById(anyLong())).thenReturn(Optional.of(MocksHotelUtil.buildEntity()));
+		when(hotelRepository.findById(anyLong())).thenReturn(Optional.of(MocksHotelUtil.buildEntity()));
 		HotelEntity result = hotelImpl.findById(1L);
 		
 		assertNotNull(result);
+	}
+
+	@Test
+	void findByIdFailThrowsExceptionTest() {
+		when(hotelRepository.findById(anyLong())).thenReturn(Optional.empty());
+		
+        assertThrows(BussinessException.class, () -> hotelImpl.findById(1L));
+        
+        verify(hotelRepository, atLeastOnce()).findById(anyLong());
+	}
+
+	@Test
+	void updateHotelSuccessTest() {
+		
+		when(hotelRepository.findById(anyLong())).thenReturn(Optional.of(MocksHotelUtil.buildEntity()));
+		
+		when(hotelRepository.save(any(HotelEntity.class))).thenReturn(MocksHotelUtil.buildEntity());
+		
+		HotelEntity result = hotelImpl.updateHotel(MocksHotelUtil.buildEntity());
+		
+		assertNotNull(result);
+	}
+
+	@Test
+	void updateHotelFailThrowsExceptionTest() {
+		when(hotelRepository.findById(anyLong())).thenReturn(Optional.empty());
+		
+		HotelEntity entity = MocksHotelUtil.buildEntity();
+        assertThrows(BussinessException.class, () -> hotelImpl.updateHotel(entity));
+        
+        verify(hotelRepository, atLeastOnce()).findById(anyLong());
 	}
 }

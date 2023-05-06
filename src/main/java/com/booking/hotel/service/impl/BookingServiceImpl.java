@@ -53,7 +53,4 @@ public class BookingServiceImpl implements IBookingService {
 		}
 		throw new BussinessException(HttpStatus.BAD_REQUEST.value(), MessagesUtilEnum.NOT_FOUND.getMessage());
 	}
-
-	
-
 }

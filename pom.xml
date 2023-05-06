@@ -85,6 +85,13 @@
 			<version>0.8.9</version>
 		</dependency>
 	</dependencies>
+	
+	<profiles>
+ 	  <profile>
+  		 <id>dev</id>
+  	  </profile>
+	</profiles>
+
 
 	<build>
 		<resources>
