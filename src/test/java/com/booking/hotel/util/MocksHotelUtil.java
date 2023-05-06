@@ -10,9 +10,9 @@ import com.booking.hotel.persistence.entity.HotelEntity;
  * @author juveme88
  *
  */
-public class MocksUtil {
+public class MocksHotelUtil {
 
-	private MocksUtil() {
+	private MocksHotelUtil() {
 
 	}
 

@@ -23,7 +23,7 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequestMapping(path = BOOKING_RESOURCES)
 @RequiredArgsConstructor
-public class BookingControllerImpl {
+class BookingControllerImpl {
 
 	private final BookingControllerIntermediate intermediate;
 
