@@ -15,6 +15,28 @@
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
+		<jacoco.version>0.8.8</jacoco.version>
+		<poi.version>5.2.2</poi.version>
+		<mapstruct.version>1.5.2.Final</mapstruct.version>
+		<lombok-mapstruct-binding.version>0.2.0</lombok-mapstruct-binding.version>
+		<projectlombok.version>1.18.26</projectlombok.version>
+		<sonar.pluing.version>3.9.1.2184</sonar.pluing.version>
+		<sonar.exclusions>
+			**/persistence/entity/**/*.java,
+			**/persistence/projections/**/*.java,
+			**/persistence/repository/**/*.java,
+			**/persistence/transfer/**/*.java,
+			**/util/mapper/**/*.java,
+			**/util/**/**/*.java,
+			**/exception/*.java, 		
+			**/BookingHotelsBackApplication.java
+		</sonar.exclusions>
+		<sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+		<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+		<sonar.coverage.jacoco.xmlReportPaths>${project.build.directory}/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
+		<sonar.jacoco.reportsPaths>${project.build.directory}/jacoco-ut.exec</sonar.jacoco.reportsPaths>
+		<sonar.sources>pom.xml,src/main/java</sonar.sources>
+		<sonar.tests>src/test/java</sonar.tests>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -65,6 +87,12 @@
 	</dependencies>
 
 	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources/</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -78,7 +106,36 @@
 					</excludes>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>${jacoco.version}</version>
+				<executions>
+					<execution>
+						<id>jacoco-initialize</id>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>jacoco-site</id>
+						<phase>package</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.sonarsource.scanner.maven</groupId>
+					<artifactId>sonar-maven-plugin</artifactId>
+					<version>${sonar.pluing.version}</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 	</build>
 	<repositories>
 		<repository>

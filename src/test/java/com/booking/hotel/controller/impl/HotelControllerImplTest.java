@@ -25,7 +25,7 @@ import com.booking.hotel.persistence.entity.HotelEntity;
 import com.booking.hotel.persistence.transfer.RequestHotel;
 import com.booking.hotel.persistence.transfer.ResponseHotelData;
 import com.booking.hotel.util.MessagesUtilEnum;
-import com.booking.hotel.util.MocksUtil;
+import com.booking.hotel.util.MocksHotelUtil;
 
 /**
  * 
@@ -64,17 +64,17 @@ class HotelControllerImplTest {
 	}
 
 	RequestHotel buildRequest() {
-		return new RequestHotel(LocalDate.now(), MocksUtil.buildEntity());
+		return new RequestHotel(LocalDate.now(), MocksHotelUtil.buildEntity());
 	}
 
 	ResponseHotelData buildList() {
 		return new ResponseHotelData(UUID.randomUUID().toString(), HttpStatus.OK,
-				MessagesUtilEnum.HOTELS_SUCCESS.getMessage(), null, MocksUtil.buildList(), 1L);
+				MessagesUtilEnum.HOTELS_SUCCESS.getMessage(), null, MocksHotelUtil.buildList(), 1L);
 	}
 
 	ResponseHotelData buildObject() {
 		return new ResponseHotelData(UUID.randomUUID().toString(), HttpStatus.CREATED,
-				MessagesUtilEnum.HOTELS_SUCCESS.getMessage(), MocksUtil.buildEntity(), new ArrayList<>(), 1L);
+				MessagesUtilEnum.HOTELS_SUCCESS.getMessage(), MocksHotelUtil.buildEntity(), new ArrayList<>(), 1L);
 	}
 
 }
