@@ -14,16 +14,9 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ResponseHotelData<T> {
-
-	private String uuid;
+public class ResponseError {
 
 	private HttpStatus status;
-
+	
 	private String message;
-
-	private T response;
-
-	private Long size;
-
 }

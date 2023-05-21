@@ -20,7 +20,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import com.booking.hotel.exception.BussinessException;
+import com.booking.hotel.exception.AnythingException;
 import com.booking.hotel.persistence.entity.HotelEntity;
 import com.booking.hotel.persistence.repository.HotelRepository;
 import com.booking.hotel.util.MessagesUtilEnum;
@@ -84,7 +84,7 @@ class HotelServiceImplTest {
 	void findByIdFailThrowsExceptionTest() {
 		when(hotelRepository.findById(anyLong())).thenReturn(Optional.empty());
 		
-        assertThrows(BussinessException.class, () -> hotelImpl.findById(1L));
+        assertThrows(AnythingException.class, () -> hotelImpl.findById(1L));
         
         verify(hotelRepository, atLeastOnce()).findById(anyLong());
 	}
@@ -106,7 +106,7 @@ class HotelServiceImplTest {
 		when(hotelRepository.findById(anyLong())).thenReturn(Optional.empty());
 		
 		HotelEntity entity = MocksHotelUtil.buildEntity();
-        assertThrows(BussinessException.class, () -> hotelImpl.updateHotel(entity));
+        assertThrows(AnythingException.class, () -> hotelImpl.updateHotel(entity));
         
         verify(hotelRepository, atLeastOnce()).findById(anyLong());
 	}

@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
-import com.booking.hotel.exception.BussinessException;
+import com.booking.hotel.exception.AnythingException;
 import com.booking.hotel.persistence.entity.BookingEntity;
 import com.booking.hotel.persistence.entity.HotelEntity;
 import com.booking.hotel.persistence.projections.BookingProjection;
@@ -51,6 +51,6 @@ public class BookingServiceImpl implements IBookingService {
 			bookingRepository.save(entity);
 			return Mapper.modelBookingToDto(entity, Mapper.modelHotelToDto(hotelFound));
 		}
-		throw new BussinessException(HttpStatus.BAD_REQUEST.value(), MessagesUtilEnum.NOT_FOUND.getMessage());
+		throw new AnythingException(HttpStatus.BAD_REQUEST.value(), MessagesUtilEnum.NOT_FOUND.getMessage());
 	}
 }

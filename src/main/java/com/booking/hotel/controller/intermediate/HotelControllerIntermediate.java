@@ -1,6 +1,5 @@
 package com.booking.hotel.controller.intermediate;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -27,29 +26,28 @@ public class HotelControllerIntermediate implements IHotelController {
 	private final IHotelService hotelService;
 
 	@Override
-	public ResponseHotelData findAllHotels() {
+	public ResponseHotelData<List<HotelEntity>> findAllHotels() {
 		List<HotelEntity> response = hotelService.allHotels();
-		return new ResponseHotelData(UUID.randomUUID().toString(), HttpStatus.OK,
-				MessagesUtilEnum.HOTELS_SUCCESS.getMessage(), null, response, Long.valueOf(response.size()));
+		return new ResponseHotelData<>(UUID.randomUUID().toString(), HttpStatus.OK,
+				MessagesUtilEnum.HOTELS_SUCCESS.getMessage(), response, Long.valueOf(response.size()));
 	}
 
 	@Override
-	public ResponseHotelData saveHotel(HotelEntity entity) {
-		return new ResponseHotelData(UUID.randomUUID().toString(), HttpStatus.CREATED,
-				MessagesUtilEnum.SAVE_HOTEL_SUCCESS.getMessage(), hotelService.createHotel(entity), new ArrayList<>(), 1L);
+	public ResponseHotelData<HotelEntity> saveHotel(HotelEntity entity) {
+		return new ResponseHotelData<>(UUID.randomUUID().toString(), HttpStatus.CREATED,
+				MessagesUtilEnum.SAVE_HOTEL_SUCCESS.getMessage(), hotelService.createHotel(entity), 1L);
 	}
 
 	@Override
-	public ResponseHotelData findByIdHotel(Long hotelId) {
-		return new ResponseHotelData(UUID.randomUUID().toString(), HttpStatus.OK,
-				MessagesUtilEnum.HOTELS_SUCCESS.getMessage(), hotelService.findById(hotelId), new ArrayList<>(), 1L);
+	public ResponseHotelData<HotelEntity> findByIdHotel(Long hotelId) {
+		return new ResponseHotelData<>(UUID.randomUUID().toString(), HttpStatus.OK,
+				MessagesUtilEnum.HOTELS_SUCCESS.getMessage(), hotelService.findById(hotelId), 1L);
 	}
 
 	@Override
-	public ResponseHotelData updateHotel(HotelEntity entity) {
-		return new ResponseHotelData(UUID.randomUUID().toString(), HttpStatus.OK,
-				MessagesUtilEnum.UPDATED_HOTEL_SUCCESS.getMessage(), hotelService.updateHotel(entity), new ArrayList<>(),
-				1L);
+	public ResponseHotelData<HotelEntity> updateHotel(HotelEntity entity) {
+		return new ResponseHotelData<>(UUID.randomUUID().toString(), HttpStatus.OK,
+				MessagesUtilEnum.UPDATED_HOTEL_SUCCESS.getMessage(), hotelService.updateHotel(entity),1L);
 	}
 
 }

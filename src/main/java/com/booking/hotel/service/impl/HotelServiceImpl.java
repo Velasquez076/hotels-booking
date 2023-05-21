@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
-import com.booking.hotel.exception.BussinessException;
+import com.booking.hotel.exception.AnythingException;
 import com.booking.hotel.persistence.entity.HotelEntity;
 import com.booking.hotel.persistence.repository.HotelRepository;
 import com.booking.hotel.service.IHotelService;
@@ -37,7 +37,7 @@ public class HotelServiceImpl implements IHotelService {
 		HotelEntity foundHotel = hotelRepository.findByNit(entity.getNit()).orElse(null);
 		if (foundHotel != null) {
 			log.info(".:: Hotel exist already ::.");
-			throw new BussinessException(HttpStatus.OK.value(), MessagesUtilEnum.ALREDY_EXIST_HOTEL.getMessage());
+			throw new AnythingException(HttpStatus.OK.value(), MessagesUtilEnum.ALREDY_EXIST_HOTEL.getMessage());
 		}
 		return hotelRepository.save(entity);
 	}
@@ -48,7 +48,7 @@ public class HotelServiceImpl implements IHotelService {
 		if (response != null) {
 			return response;
 		}
-		throw new BussinessException(HttpStatus.NOT_FOUND.value(), MessagesUtilEnum.NOT_FOUND.getMessage());
+		throw new AnythingException(HttpStatus.NOT_FOUND.value(), MessagesUtilEnum.NOT_FOUND.getMessage());
 	}
 
 	@Override
@@ -57,7 +57,7 @@ public class HotelServiceImpl implements IHotelService {
 		if (foundHotel != null) {
 			return hotelRepository.save(Mapper.modelHotelEntityToModel(entity));
 		}
-		throw new BussinessException(HttpStatus.NOT_FOUND.value(), MessagesUtilEnum.NOT_FOUND.getMessage());
+		throw new AnythingException(HttpStatus.NOT_FOUND.value(), MessagesUtilEnum.NOT_FOUND.getMessage());
 	}
 
 }
