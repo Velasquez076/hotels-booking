@@ -1,12 +1,13 @@
 package com.booking.hotel.controller.impl;
 
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.atLeastOnce;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+
+import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -16,6 +17,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.booking.hotel.controller.intermediate.BookingControllerIntermediate;
 import com.booking.hotel.persistence.entity.BookingEntity;
+import com.booking.hotel.persistence.transfer.BookingDto;
 import com.booking.hotel.persistence.transfer.ResponseBookingData;
 import com.booking.hotel.util.MocksBookingUtil;
 
@@ -36,13 +38,13 @@ class BookingControllerImplTest {
 	@Test
 	void saveBookingTest() {
 		
-		when(intermediate.saveBooking(any(BookingEntity.class))).thenReturn(MocksBookingUtil.buildResponse());
+		when(intermediate.saveBooking(any(BookingEntity.class))).thenReturn(MocksBookingUtil.buildObjectResponse());
 		
-		ResponseBookingData result = bookingImpl.saveBooking(MocksBookingUtil.buildRequest());
+		
+		@SuppressWarnings("unchecked")
+		ResponseBookingData<BookingDto> result = bookingImpl.saveBooking(MocksBookingUtil.buildRequest());
 		
 		assertNotNull(result);
-		assertNotNull(result.getElement());
-		assertFalse(result.getLstElemList().isEmpty());
 		assertEquals(201, result.getStatus().value());
 		verify(intermediate, atLeastOnce()).saveBooking(any(BookingEntity.class));
 		
@@ -52,11 +54,11 @@ class BookingControllerImplTest {
 	void findAllBookingTest() {
 		when(intermediate.findAllBooking()).thenReturn(MocksBookingUtil.buildResponse());
 		
-		ResponseBookingData result = bookingImpl.findAllBooking();
+		@SuppressWarnings("unchecked")
+		ResponseBookingData<List<BookingDto>> result = bookingImpl.findAllBooking();
 		
 		assertNotNull(result);
-		assertNotNull(result.getElement());
-		assertFalse(result.getLstElemList().isEmpty());
+		assertNotNull(result.getResponse());
 		verify(intermediate, atLeastOnce()).findAllBooking();
 		
 	}

@@ -1,6 +1,5 @@
 package com.booking.hotel.controller.intermediate;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -28,17 +27,16 @@ public class BookingControllerIntermediate implements IBookingController {
 	private final IBookingService bookingService;
 
 	@Override
-	public ResponseBookingData saveBooking(BookingEntity entity) {
-		return new ResponseBookingData(UUID.randomUUID().toString(), HttpStatus.CREATED,
-				MessagesUtilEnum.SAVE_HOTEL_SUCCESS.getMessage(), bookingService.createBooking(entity), new ArrayList<>(),
-				1L);
+	public ResponseBookingData<BookingDto> saveBooking(BookingEntity entity) {
+		return new ResponseBookingData<>(UUID.randomUUID().toString(), HttpStatus.CREATED,
+				MessagesUtilEnum.SAVE_HOTEL_SUCCESS.getMessage(), bookingService.createBooking(entity), 1L);
 	}
 
 	@Override
-	public ResponseBookingData findAllBooking() {
+	public ResponseBookingData<List<BookingDto>> findAllBooking() {
 		List<BookingDto> lstResult = bookingService.findAllBooking();
-		return new ResponseBookingData(UUID.randomUUID().toString(), HttpStatus.OK,
-				MessagesUtilEnum.HOTELS_SUCCESS.getMessage(), null, lstResult, Long.valueOf(lstResult.size()));
+		return new ResponseBookingData<>(UUID.randomUUID().toString(), HttpStatus.OK,
+				MessagesUtilEnum.HOTELS_SUCCESS.getMessage(), lstResult, Long.valueOf(lstResult.size()));
 	}
 
 }
