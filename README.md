@@ -1,6 +1,6 @@
 # booking-hotels
 # hotels-booking
-Aplicación para practicar la genericos, y Unit Test con Jupiter y JUnit5.
+Aplicación para practicar los genericos, y Unit Test con Jupiter y JUnit5.
 Adicionalmente,tengo una imagen Docker de sonarqube para el analisis del código y Cobertura de las pruebas.
 
 Para el que desee usar esto, solo es tener Java11 y Mysql, en los resources estan los scripts de que use para 
