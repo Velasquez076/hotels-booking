@@ -1,5 +1,7 @@
 package com.booking.hotel.controller;
 
+import java.util.List;
+
 import com.booking.hotel.persistence.entity.HotelEntity;
 import com.booking.hotel.persistence.transfer.ResponseHotelData;
 
@@ -10,11 +12,11 @@ import com.booking.hotel.persistence.transfer.ResponseHotelData;
  */
 public interface IHotelController {
 
-	ResponseHotelData findAllHotels();
+	ResponseHotelData<List<HotelEntity>> findAllHotels();
 
-	ResponseHotelData saveHotel(HotelEntity entity);
+	ResponseHotelData<HotelEntity> saveHotel(HotelEntity entity);
 
-	ResponseHotelData findByIdHotel(Long hotelId);
+	ResponseHotelData<HotelEntity> findByIdHotel(Long hotelId);
 
-	ResponseHotelData updateHotel(HotelEntity entoty);
+	ResponseHotelData<HotelEntity> updateHotel(HotelEntity entoty);
 }

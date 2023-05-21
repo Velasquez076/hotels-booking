@@ -1,6 +1,9 @@
 package com.booking.hotel.controller;
 
+import java.util.List;
+
 import com.booking.hotel.persistence.entity.BookingEntity;
+import com.booking.hotel.persistence.transfer.BookingDto;
 import com.booking.hotel.persistence.transfer.ResponseBookingData;
 
 /**
@@ -9,9 +12,9 @@ import com.booking.hotel.persistence.transfer.ResponseBookingData;
  *
  */
 public interface IBookingController {
-	
-	ResponseBookingData saveBooking(BookingEntity entity);
-	
-	ResponseBookingData findAllBooking();
-	
+
+	ResponseBookingData<BookingDto> saveBooking(BookingEntity entity);
+
+	ResponseBookingData<List<BookingDto>> findAllBooking();
+
 }

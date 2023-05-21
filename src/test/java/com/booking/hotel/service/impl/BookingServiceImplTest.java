@@ -19,7 +19,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import com.booking.hotel.exception.BussinessException;
+import com.booking.hotel.exception.AnythingException;
 import com.booking.hotel.persistence.entity.BookingEntity;
 import com.booking.hotel.persistence.repository.BookingRepository;
 import com.booking.hotel.persistence.repository.HotelRepository;
@@ -79,7 +79,7 @@ class BookingServiceImplTest {
         when(hotelRepository.findById(MocksBookingUtil.buildEntity().getIdHotel())).thenReturn(Optional.empty());
         
         BookingEntity entity = MocksBookingUtil.buildEntity();
-        assertThrows(BussinessException.class, () -> bookingServiceImpl.createBooking(entity));
+        assertThrows(AnythingException.class, () -> bookingServiceImpl.createBooking(entity));
         
         verify(hotelRepository, atLeastOnce()).findById(anyLong());
     }

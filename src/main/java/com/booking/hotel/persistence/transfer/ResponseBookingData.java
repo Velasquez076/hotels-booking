@@ -1,11 +1,6 @@
 package com.booking.hotel.persistence.transfer;
 
-import java.util.List;
-
 import org.springframework.http.HttpStatus;
-
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,7 +12,7 @@ import lombok.Getter;
  */
 @Getter
 @AllArgsConstructor
-public class ResponseBookingData {
+public class ResponseBookingData<T> {
 
 	private String uuid;
 
@@ -25,11 +20,7 @@ public class ResponseBookingData {
 
 	private String message;
 
-	@JsonInclude(value = Include.NON_NULL)
-	private BookingDto element;
-
-	@JsonInclude(value = Include.NON_EMPTY)
-	private List<BookingDto> lstElemList;
+	private T response;
 
 	private Long size;
 

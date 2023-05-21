@@ -2,6 +2,8 @@ package com.booking.hotel.controller.impl;
 
 import static com.booking.hotel.controller.constants.ControllerHotelConstants.BOOKING_RESOURCES;
 
+import java.util.List;
+
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.booking.hotel.controller.intermediate.BookingControllerIntermediate;
+import com.booking.hotel.persistence.transfer.BookingDto;
 import com.booking.hotel.persistence.transfer.BookingRequest;
 import com.booking.hotel.persistence.transfer.ResponseBookingData;
 
@@ -33,7 +36,7 @@ class BookingControllerImpl {
 	 * @return
 	 */
 	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	ResponseBookingData saveBooking(@RequestBody BookingRequest entity) {
+	ResponseBookingData<BookingDto> saveBooking(@RequestBody BookingRequest entity) {
 		return intermediate.saveBooking(entity.getBooking());
 	}
 
@@ -42,7 +45,7 @@ class BookingControllerImpl {
 	 * @return
 	 */
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-	ResponseBookingData findAllBooking() {
+	ResponseBookingData<List<BookingDto>> findAllBooking() {
 		return intermediate.findAllBooking();
 	}
 

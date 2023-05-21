@@ -30,8 +30,12 @@ public class MocksBookingUtil {
 		return model;
 	}
 
-	public static ResponseBookingData buildResponse() {
-		return new ResponseBookingData("1", HttpStatus.CREATED, MSJ, buildDto(), buildListDto(), 2L);
+	public static ResponseBookingData<List<BookingDto>> buildResponse() {
+		return new ResponseBookingData<>("1", HttpStatus.CREATED, MSJ, buildListDto(), 2L);
+	}
+	
+	public static ResponseBookingData<BookingDto> buildObjectResponse() {
+		return new ResponseBookingData<>("1", HttpStatus.CREATED, MSJ, buildDto(), 2L);
 	}
 
 	public static BookingDto buildDto() {
