@@ -1,10 +1,10 @@
-package com.booking.hotel.persistence.repository;
+package com.booking.hotel.persistence.repository.hotel;
 
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.booking.hotel.persistence.entity.HotelEntity;
+import com.booking.hotel.persistence.entity.hotel.HotelEntity;
 
 /**
  * 

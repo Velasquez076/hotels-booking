@@ -1,4 +1,4 @@
-package com.booking.hotel.persistence.transfer;
+package com.booking.hotel.persistence.transfer.hotel;
 
 import org.springframework.http.HttpStatus;
 

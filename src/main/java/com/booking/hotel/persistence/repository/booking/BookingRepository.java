@@ -1,11 +1,11 @@
-package com.booking.hotel.persistence.repository;
+package com.booking.hotel.persistence.repository.booking;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import com.booking.hotel.persistence.entity.BookingEntity;
+import com.booking.hotel.persistence.entity.booking.BookingEntity;
 import com.booking.hotel.persistence.projections.BookingProjection;
 
 /**

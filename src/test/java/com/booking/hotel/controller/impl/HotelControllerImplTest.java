@@ -20,9 +20,9 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
 
 import com.booking.hotel.controller.intermediate.HotelControllerIntermediate;
-import com.booking.hotel.persistence.entity.HotelEntity;
-import com.booking.hotel.persistence.transfer.RequestHotel;
-import com.booking.hotel.persistence.transfer.ResponseHotelData;
+import com.booking.hotel.persistence.entity.hotel.HotelEntity;
+import com.booking.hotel.persistence.transfer.hotel.RequestHotel;
+import com.booking.hotel.persistence.transfer.hotel.ResponseHotelData;
 import com.booking.hotel.util.MessagesUtilEnum;
 import com.booking.hotel.util.MocksHotelUtil;
 

@@ -1,9 +1,9 @@
-package com.booking.hotel.service;
+package com.booking.hotel.service.booking;
 
 import java.util.List;
 
-import com.booking.hotel.persistence.entity.BookingEntity;
-import com.booking.hotel.persistence.transfer.BookingDto;
+import com.booking.hotel.persistence.entity.booking.BookingEntity;
+import com.booking.hotel.persistence.transfer.booking.BookingDto;
 
 /**
  * 

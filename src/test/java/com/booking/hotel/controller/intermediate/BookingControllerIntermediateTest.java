@@ -15,10 +15,10 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import com.booking.hotel.persistence.entity.BookingEntity;
-import com.booking.hotel.persistence.transfer.BookingDto;
-import com.booking.hotel.persistence.transfer.ResponseBookingData;
-import com.booking.hotel.service.IBookingService;
+import com.booking.hotel.persistence.entity.booking.BookingEntity;
+import com.booking.hotel.persistence.transfer.booking.BookingDto;
+import com.booking.hotel.persistence.transfer.booking.ResponseBookingData;
+import com.booking.hotel.service.booking.IBookingService;
 import com.booking.hotel.util.MocksBookingUtil;
 
 /**

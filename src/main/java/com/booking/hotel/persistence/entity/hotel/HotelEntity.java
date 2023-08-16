@@ -1,4 +1,4 @@
-package com.booking.hotel.persistence.entity;
+package com.booking.hotel.persistence.entity.hotel;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

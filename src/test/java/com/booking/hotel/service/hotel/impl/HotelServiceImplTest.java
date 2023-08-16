@@ -1,4 +1,4 @@
-package com.booking.hotel.service.impl;
+package com.booking.hotel.service.hotel.impl;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
@@ -21,8 +21,9 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.booking.hotel.exception.AnythingException;
-import com.booking.hotel.persistence.entity.HotelEntity;
-import com.booking.hotel.persistence.repository.HotelRepository;
+import com.booking.hotel.persistence.entity.hotel.HotelEntity;
+import com.booking.hotel.persistence.repository.hotel.HotelRepository;
+import com.booking.hotel.service.hotel.impl.HotelServiceImpl;
 import com.booking.hotel.util.MessagesUtilEnum;
 import com.booking.hotel.util.MocksHotelUtil;
 
