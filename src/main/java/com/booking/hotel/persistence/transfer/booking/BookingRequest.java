@@ -1,8 +1,8 @@
-package com.booking.hotel.persistence.transfer;
+package com.booking.hotel.persistence.transfer.booking;
 
 import java.time.LocalDate;
 
-import com.booking.hotel.persistence.entity.BookingEntity;
+import com.booking.hotel.persistence.entity.booking.BookingEntity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -16,9 +16,9 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import com.booking.hotel.persistence.entity.HotelEntity;
-import com.booking.hotel.persistence.transfer.ResponseHotelData;
-import com.booking.hotel.service.IHotelService;
+import com.booking.hotel.persistence.entity.hotel.HotelEntity;
+import com.booking.hotel.persistence.transfer.hotel.ResponseHotelData;
+import com.booking.hotel.service.hotel.IHotelService;
 import com.booking.hotel.util.MocksHotelUtil;
 
 /**

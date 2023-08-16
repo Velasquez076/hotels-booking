@@ -7,9 +7,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
 import com.booking.hotel.controller.IHotelController;
-import com.booking.hotel.persistence.entity.HotelEntity;
-import com.booking.hotel.persistence.transfer.ResponseHotelData;
-import com.booking.hotel.service.IHotelService;
+import com.booking.hotel.persistence.entity.hotel.HotelEntity;
+import com.booking.hotel.persistence.transfer.hotel.ResponseHotelData;
+import com.booking.hotel.service.hotel.IHotelService;
 import com.booking.hotel.util.MessagesUtilEnum;
 
 import lombok.RequiredArgsConstructor;

@@ -6,11 +6,11 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 
-import com.booking.hotel.persistence.entity.BookingEntity;
-import com.booking.hotel.persistence.transfer.BookingDto;
-import com.booking.hotel.persistence.transfer.BookingRequest;
-import com.booking.hotel.persistence.transfer.HotelDto;
-import com.booking.hotel.persistence.transfer.ResponseBookingData;
+import com.booking.hotel.persistence.entity.booking.BookingEntity;
+import com.booking.hotel.persistence.transfer.booking.BookingDto;
+import com.booking.hotel.persistence.transfer.booking.BookingRequest;
+import com.booking.hotel.persistence.transfer.booking.ResponseBookingData;
+import com.booking.hotel.persistence.transfer.hotel.HotelDto;
 
 /**
  * 
@@ -33,7 +33,7 @@ public class MocksBookingUtil {
 	public static ResponseBookingData<List<BookingDto>> buildResponse() {
 		return new ResponseBookingData<>("1", HttpStatus.CREATED, MSJ, buildListDto(), 2L);
 	}
-	
+
 	public static ResponseBookingData<BookingDto> buildObjectResponse() {
 		return new ResponseBookingData<>("1", HttpStatus.CREATED, MSJ, buildDto(), 2L);
 	}

@@ -3,11 +3,11 @@ package com.booking.hotel.util.mapper;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.booking.hotel.persistence.entity.BookingEntity;
-import com.booking.hotel.persistence.entity.HotelEntity;
+import com.booking.hotel.persistence.entity.booking.BookingEntity;
+import com.booking.hotel.persistence.entity.hotel.HotelEntity;
 import com.booking.hotel.persistence.projections.BookingProjection;
-import com.booking.hotel.persistence.transfer.BookingDto;
-import com.booking.hotel.persistence.transfer.HotelDto;
+import com.booking.hotel.persistence.transfer.booking.BookingDto;
+import com.booking.hotel.persistence.transfer.hotel.HotelDto;
 
 /**
  * 

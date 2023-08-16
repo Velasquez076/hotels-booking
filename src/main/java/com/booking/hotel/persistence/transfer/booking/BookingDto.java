@@ -1,6 +1,8 @@
-package com.booking.hotel.persistence.transfer;
+package com.booking.hotel.persistence.transfer.booking;
 
 import java.time.LocalDate;
+
+import com.booking.hotel.persistence.transfer.hotel.HotelDto;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -22,11 +22,7 @@
 		<projectlombok.version>1.18.26</projectlombok.version>
 		<sonar.pluing.version>3.9.1.2184</sonar.pluing.version>
 		<sonar.exclusions>
-			**/persistence/entity/**/*.java,
-			**/persistence/projections/**/*.java,
-			**/persistence/repository/**/*.java,
-			**/persistence/transfer/**/*.java,
-			**/util/mapper/**/*.java,
+			**/persistence/**/*.java,
 			**/util/**/**/*.java,
 			**/exception/*.java, 		
 			**/BookingHotelsBackApplication.java

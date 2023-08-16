@@ -1,19 +1,20 @@
-package com.booking.hotel.service.impl;
+package com.booking.hotel.service.booking.impl;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.booking.hotel.exception.AnythingException;
-import com.booking.hotel.persistence.entity.BookingEntity;
-import com.booking.hotel.persistence.entity.HotelEntity;
+import com.booking.hotel.persistence.entity.booking.BookingEntity;
+import com.booking.hotel.persistence.entity.hotel.HotelEntity;
 import com.booking.hotel.persistence.projections.BookingProjection;
-import com.booking.hotel.persistence.repository.BookingRepository;
-import com.booking.hotel.persistence.repository.HotelRepository;
-import com.booking.hotel.persistence.transfer.BookingDto;
-import com.booking.hotel.service.IBookingService;
+import com.booking.hotel.persistence.repository.booking.BookingRepository;
+import com.booking.hotel.persistence.repository.hotel.HotelRepository;
+import com.booking.hotel.persistence.transfer.booking.BookingDto;
+import com.booking.hotel.service.booking.IBookingService;
 import com.booking.hotel.util.MessagesUtilEnum;
 import com.booking.hotel.util.mapper.Mapper;
 
@@ -45,6 +46,7 @@ public class BookingServiceImpl implements IBookingService {
 	}
 
 	@Override
+	@Transactional
 	public BookingDto createBooking(BookingEntity entity) {
 		HotelEntity hotelFound = hotelRepository.findById(entity.getIdHotel()).orElse(null);
 		if (hotelFound != null) {

@@ -1,4 +1,4 @@
-package com.booking.hotel.service.impl;
+package com.booking.hotel.service.booking.impl;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -20,10 +20,11 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.booking.hotel.exception.AnythingException;
-import com.booking.hotel.persistence.entity.BookingEntity;
-import com.booking.hotel.persistence.repository.BookingRepository;
-import com.booking.hotel.persistence.repository.HotelRepository;
-import com.booking.hotel.persistence.transfer.BookingDto;
+import com.booking.hotel.persistence.entity.booking.BookingEntity;
+import com.booking.hotel.persistence.repository.booking.BookingRepository;
+import com.booking.hotel.persistence.repository.hotel.HotelRepository;
+import com.booking.hotel.persistence.transfer.booking.BookingDto;
+import com.booking.hotel.service.booking.impl.BookingServiceImpl;
 import com.booking.hotel.util.MocksBookingUtil;
 import com.booking.hotel.util.MocksHotelUtil;
 

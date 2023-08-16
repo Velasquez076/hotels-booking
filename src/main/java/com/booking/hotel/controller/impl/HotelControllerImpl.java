@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.booking.hotel.controller.intermediate.HotelControllerIntermediate;
-import com.booking.hotel.persistence.entity.HotelEntity;
-import com.booking.hotel.persistence.transfer.RequestHotel;
-import com.booking.hotel.persistence.transfer.ResponseHotelData;
+import com.booking.hotel.persistence.entity.hotel.HotelEntity;
+import com.booking.hotel.persistence.transfer.hotel.RequestHotel;
+import com.booking.hotel.persistence.transfer.hotel.ResponseHotelData;
 
 import lombok.RequiredArgsConstructor;
 

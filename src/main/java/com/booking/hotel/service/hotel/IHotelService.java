@@ -1,8 +1,8 @@
-package com.booking.hotel.service;
+package com.booking.hotel.service.hotel;
 
 import java.util.List;
 
-import com.booking.hotel.persistence.entity.HotelEntity;
+import com.booking.hotel.persistence.entity.hotel.HotelEntity;
 
 /**
  * 

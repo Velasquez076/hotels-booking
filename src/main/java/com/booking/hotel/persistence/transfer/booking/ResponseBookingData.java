@@ -1,10 +1,9 @@
-package com.booking.hotel.persistence.transfer;
+package com.booking.hotel.persistence.transfer.booking;
 
 import org.springframework.http.HttpStatus;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 /**
  * 
@@ -12,11 +11,17 @@ import lombok.NoArgsConstructor;
  *
  */
 @Getter
-@NoArgsConstructor
 @AllArgsConstructor
-public class ResponseError {
+public class ResponseBookingData<T> {
+
+	private String uuid;
 
 	private HttpStatus status;
-	
+
 	private String message;
+
+	private T response;	
+
+	private Long size;
+
 }
